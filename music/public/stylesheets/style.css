@@ -1,0 +1,151 @@
+*{
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  box-sizing: border-box;
+}
+html,
+body{
+  height: 100%;
+  overflow:-Scroll;
+  overflow-x:hidden;
+  overflow-y:hidden;
+}
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background:#000;
+  color: #fff;
+  text-align: center;
+}
+header,
+.left,
+.right{
+  position: absolute;
+}
+header{
+  left: 10px;
+  top: 10px;
+  right: 10px;
+  height: 150px;
+  /*border: 1px solid #fff;*/
+}
+header h1{
+  font-size: 40px;
+  height: 60px;
+  line-height: 60px;
+}
+header ul{
+  display: inline-block;
+  margin: 5px auto;
+}
+header ul li{
+  cursor: pointer;
+  float: left;
+  width: 55px;
+  height: 20px;
+  line-height: 20px;
+  border: 1px solid #fff;
+  /*border-radius: 4px;*/
+}
+header ul li:first-child{
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+header ul li:last-child{
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+header ul li.selected{
+  background-color: #fff;
+  color: #000;
+}
+.left{
+  left: 10px;
+  top: 170px;
+  bottom: 10px;
+  width: 15%;
+  border: 1px solid #fff;
+  overflow: auto;
+}
+.left ul{
+  overflow: auto;
+}
+.left ul li{
+  height: 30px;
+  line-height: 30px;
+  cursor: pointer;
+
+  /*超出的时候显示省略号*/
+  overflow: hidden;
+  /*不换行*/
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.left ul li.selected{
+  color: red;
+}
+.right{
+  top: 170px;
+  right: 10px;
+  bottom: 10px;
+  left: -webkit-calc(15% + 20px);
+  left: calc(15% + 20px);
+  /*border: 1px solid #fff;*/
+}
+
+/*音量控制条样式*/
+input[type="range"]{
+  /*取消默认样式*/
+  -webkit-appearance: none;  
+  height: 8px;
+  background: #999;
+  border-radius: 10px;
+  /*取消焦点框，当点击调节音量的时候会有一个蓝色的框，由于影响美感，我们把它取消掉*/
+  outline: none;  
+}
+/*音量调节滑块样式*/
+input[type="range"]::-webkit-slider-thumb{
+  -webkit-appearance: none; 
+  height: 12px;
+  width: 12px;
+  background: #fff;
+  border-radius: 100%;
+}
+
+/*兼容火狐浏览器的写法*/
+input[tepe=“range”]::-moz-range-track{
+  height: 8px;
+  background: #999;
+  border-radius: 10px;
+  border: none;
+}
+input[tepe=“range”]::-moz-range-thumb{
+  height: 12px;
+  width: 12px;
+  background: #fff;
+  border-radius: 100%;
+  border: none;
+}
+
+@media screen and (max-width: 800px),screen and (max-height: 500px){
+    body{
+      font-size: 12px;
+    }
+    header{
+      height: 80px;
+    }
+    header h1{
+      font-size: 24px;
+      height: 34px;
+      line-height: 60px;
+    }
+    header ul li{
+      width: 50px;
+      height: 16px;
+      line-height: 16px;
+      /*border-radius: 4px;*/
+    }
+    .left, .right{
+      top: 100px;
+    }
+}
